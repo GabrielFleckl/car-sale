@@ -16,6 +16,8 @@ import { useControls } from "leva";
 
 export default function CarSale() {
   const { FP } = useControls({ FP: false });
+  const { zoom } = useControls({ zoom: false });
+  const { rotate } = useControls({ rotate: true });
 
   const camera = useRef();
 
@@ -83,8 +85,8 @@ export default function CarSale() {
             <PointerLockControls pointerSpeed={0.5} />
           ) : (
             <OrbitControls
-              enableZoom={false}
-              autoRotate
+              enableZoom={zoom}
+              autoRotate={rotate}
               autoRotateSpeed={2.5}
               maxPolarAngle={1.45}
             />
