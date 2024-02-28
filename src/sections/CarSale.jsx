@@ -1,6 +1,7 @@
 import { Canvas } from "@react-three/fiber";
 
 import {
+  Loader,
   OrbitControls,
   PerspectiveCamera,
   PointerLockControls,
@@ -98,6 +99,7 @@ export default function CarSale() {
           />
         </Canvas>
       </Suspense>
+      <Loader/>
       <p className="text-white absolute top-[60px] hidden md:inline left-[20px] z-50 font-bold">
         Press ESC to exit
       </p>
