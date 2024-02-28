@@ -22,7 +22,7 @@ function Navbar() {
   useEffect(() => {
     const handleScroll = () => {
       const BottomOfPage =
-        window.innerHeight + window.scrollY > document.body.offsetHeight;
+        window.innerHeight + window.scrollY >= document.body.offsetHeight;
       setIsBottomOfPage(BottomOfPage);
     };
 

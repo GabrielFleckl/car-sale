@@ -9,3 +9,12 @@
     @apply antialiased
   }
 }
+
+::-webkit-scrollbar {
+  width: 6px;
+  background: #323232;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #f9f9f9;
+}
