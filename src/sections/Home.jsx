@@ -6,7 +6,7 @@ import AccentText from "../components/AccentText";
 function Home() {
   return (
     <>
-      <section className="h-screen bg-homeBackground bg-cover bg-no-repeat bg-center bg-fixed rounded-b-[32px]">
+      <section className="h-screen bg-homeBackground bg-cover bg-no-repeat bg-center md:bg-fixed bg-scroll rounded-b-[32px]">
         <div className="text-white w-4/5 container flex flex-col gap-8 justify-center pt-52">
           <h1 className="font-medium md:text-6xl md:w-[790px] md:text-left md:p-0 text-center text-4xl px-2">
             From Service to Acquisition: <br /> Find{" "}

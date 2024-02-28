@@ -20,7 +20,7 @@ export default function CarSale() {
   const camera = useRef();
 
   return (
-    <div className="h-[90vh] md:w-[90%] md:py-10 container cursor-pointer relative">
+    <div className="h-[90vh] md:w-[90%] md:py-10 container hidden md:block cursor-pointer relative">
       <Suspense>
         <Canvas className="rounded-3xl ">
           <color args={[0.01, 0.01, 0.01]} attach="background" />
