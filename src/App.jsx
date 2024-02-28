@@ -7,9 +7,7 @@ import LevaConfig from "./LevaConfig";
 function App() {
   return (
     <div>
-      <div>
-        <LevaConfig />
-      </div>
+      <LevaConfig />
       <Navbar />
       <Home />
       <Services />
