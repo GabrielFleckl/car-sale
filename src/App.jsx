@@ -6,13 +6,13 @@ import LevaConfig from "./LevaConfig";
 
 function App() {
   return (
-    <div>
+    <>
       <LevaConfig />
       <Navbar />
       <Home />
       <Services />
       <CarSale />
-    </div>
+    </>
   );
 }
 

@@ -10,7 +10,7 @@ function Ground() {
 
   return (
     <mesh position={[0, -0.2, 0]} rotation-x={-Math.PI * 0.5}>
-      <circleGeometry args={[3.5, 128]} />
+      <circleGeometry args={[3, 128]} />
       <MeshReflectorMaterial
         envMapIntensity={0}
         // normalMap={normal}

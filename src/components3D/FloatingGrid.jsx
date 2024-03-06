@@ -20,7 +20,7 @@ export function FloatingGrid() {
 
   return <>
       <mesh rotation-x={-Math.PI * 0.5} position={[0, -0.2, 0]}>
-      <circleGeometry args={[3.5, 128]} />
+      <circleGeometry args={[3, 128]} />
       <meshBasicMaterial
         color={[255, 255, 255]}
         opacity={1}

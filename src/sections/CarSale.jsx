@@ -15,21 +15,21 @@ import { Model } from "../components3D/CarModel";
 import { useControls } from "leva";
 
 export default function CarSale() {
-  const { FP } = useControls({ FP: false });
+  const { FirstPerson } = useControls({ FirstPerson: false });
   const { zoom } = useControls({ zoom: false });
   const { rotate } = useControls({ rotate: true });
 
   const camera = useRef();
 
   return (
-    <div className="h-[90vh] md:w-[95%] md:py-8 container hidden md:block cursor-pointer relative">
-      <Suspense>
-        <Canvas className="rounded-3xl ">
-          <color args={[0.01, 0.01, 0.01]} attach="background" />
+    <div className="h-[90vh] w-[95%] md:py-8 container hidden md:block cursor-pointer relative">
+      <Canvas className="rounded-3xl">
+        <Suspense fallback={null}>
+          <color args={["#141414"]} attach="background" />
 
-          <ambientLight intensity={0.4} />
+          <ambientLight intensity={1} />
 
-          {FP ? (
+          {FirstPerson ? (
             ""
           ) : (
             <spotLight
@@ -42,7 +42,7 @@ export default function CarSale() {
             />
           )}
 
-          <fog attach="fog" color={"#323232"} near={1} far={15} />
+          <fog attach="fog" color={"#323232"} near={0.1} far={15} />
 
           <spotLight
             // angle={0.5}
@@ -60,7 +60,7 @@ export default function CarSale() {
             position={[0, 3, 5.2]}
           />
 
-          <spotLight
+          {/* <spotLight
             color={[1, 0.25, 0.7]}
             intensity={150}
             penumbra={1}
@@ -75,13 +75,13 @@ export default function CarSale() {
             angle={0.6}
             position={[-5, 5, 0]}
             shadow-bias={-0.0001}
-          />
+          /> */}
 
           <Model />
           <Ground />
           <FloatingGrid />
 
-          {FP ? (
+          {FirstPerson ? (
             <PointerLockControls pointerSpeed={0.5} />
           ) : (
             <OrbitControls
@@ -95,12 +95,12 @@ export default function CarSale() {
           <PerspectiveCamera
             ref={camera}
             makeDefault
-            fov={FP ? 60 : 50}
-            position={FP ? [0, 0.8, -0.4] : [0, 1.5, 5]}
-            rotation={FP ? [0, Math.PI, 0] : [0, 0, 0]}
+            fov={FirstPerson ? 40 : 50}
+            position={FirstPerson ? [0.4, 0.9, -0.3] : [0, 1.5, 5]}
+            rotation={FirstPerson ? [0, Math.PI, 0] : [0, 0, 0]}
           />
-        </Canvas>
-      </Suspense>
+        </Suspense>
+      </Canvas>
       <Loader />
       <p className="text-white absolute top-[60px] hidden md:inline left-[20px] z-50 font-bold">
         Press ESC to exit

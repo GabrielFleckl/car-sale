@@ -18,7 +18,7 @@ function LevaConfig() {
     };
   }, []);
   
-  return <Leva flat collapsed={true} hidden={isBottomOfPage ? true : false} />;
+  return <Leva flat collapsed={false} hidden={isBottomOfPage ? true : false} />;
 }
 
 export default LevaConfig;
