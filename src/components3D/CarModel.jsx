@@ -2,19 +2,19 @@ import { useFrame, useLoader } from "@react-three/fiber";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { useControls } from "leva";
 import { Html } from "@react-three/drei";
-import { useRef, useState } from "react";
+import { useState } from "react";
 
 export const Model = () => {
   const car = useLoader(GLTFLoader, "./lamborghini/scene.gltf");
 
-  // const { Hood } = useControls({ Hood: true });
+  const { Hood } = useControls({ Hood: true });
   // const { Glass } = useControls({ Glass: true });
 
   let group =
     car.scene.children[0].children[0].children[0].children[0].children[0]
       .children[0];
 
-  // group.children[4].visible = Hood;
+  group.children[4].visible = Hood;
   // group.children[22].children[0].visible = Glass;
 
   useFrame((state) => {
@@ -35,7 +35,7 @@ export const Model = () => {
         rotation={[0, Math.PI / -2, 0]}
         position={[0, -0.15, 0.1]}
       />
-      <Html
+      {/* <Html
         scale={1}
         position={[0, 2, -2]}
         rotate
@@ -48,7 +48,7 @@ export const Model = () => {
         }}
       >
         <div className="text-white bg-[#4e463d] rounded-xl px-1">$ 600.550</div>
-      </Html>
+      </Html> */}
     </>
   );
 };
