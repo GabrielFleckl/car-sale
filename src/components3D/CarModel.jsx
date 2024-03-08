@@ -27,8 +27,6 @@ export const Model = () => {
 
   const [hidden, set] = useState();
 
-  const modelRef = useRef();
-
   return (
     <>
       <primitive
@@ -36,7 +34,6 @@ export const Model = () => {
         scale={0.01}
         rotation={[0, Math.PI / -2, 0]}
         position={[0, -0.15, 0.1]}
-        ref={modelRef}
       />
       <Html
         scale={1}
@@ -44,16 +41,13 @@ export const Model = () => {
         rotate
         transform
         onOcclude={set}
-        occlude={modelRef}
         style={{
           transition: "all 0.5s",
           opacity: hidden ? 0 : 1,
           transform: `scale(${hidden ? 0.5 : 1})`,
         }}
       >
-        <div className="text-white bg-[#4e463d] rounded-xl px-1">
-          $ 600.550{" "}
-        </div>
+        <div className="text-white bg-[#4e463d] rounded-xl px-1">$ 600.550</div>
       </Html>
     </>
   );
