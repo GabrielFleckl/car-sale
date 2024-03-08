@@ -1,10 +1,14 @@
 import { Canvas } from "@react-three/fiber";
 
 import {
+  Environment,
   Loader,
   OrbitControls,
   PerspectiveCamera,
   PointerLockControls,
+  Stats,
+  Stars,
+  Html,
 } from "@react-three/drei";
 import { Suspense, useRef } from "react";
 
@@ -17,7 +21,7 @@ import { useControls } from "leva";
 export default function CarSale() {
   const { FirstPerson } = useControls({ FirstPerson: false });
   const { zoom } = useControls({ zoom: false });
-  const { rotate } = useControls({ rotate: true });
+  const { rotate } = useControls({ rotate: false });
 
   const camera = useRef();
 
@@ -42,15 +46,9 @@ export default function CarSale() {
             />
           )}
 
-          <fog attach="fog" color={"#323232"} near={0.1} far={15} />
+          {/* <fog attach="fog" color={"#323232"} near={0.1} far={15} /> */}
 
-          <spotLight
-            // angle={0.5}
-            // penumbra={1}
-            color="#FFFFFF"
-            intensity={150}
-            position={[0, 4, 0]}
-          />
+          <spotLight color="#FFFFFF" intensity={150} position={[0, 4, 0]} />
 
           <spotLight
             angle={1}
@@ -59,23 +57,6 @@ export default function CarSale() {
             intensity={50}
             position={[0, 3, 5.2]}
           />
-
-          {/* <spotLight
-            color={[1, 0.25, 0.7]}
-            intensity={150}
-            penumbra={1}
-            angle={0.6}
-            position={[5, 5, 0]}
-            shadow-bias={-0.0001}
-          />
-          <spotLight
-            color={[0.14, 0.5, 1]}
-            intensity={200}
-            penumbra={1}
-            angle={0.6}
-            position={[-5, 5, 0]}
-            shadow-bias={-0.0001}
-          /> */}
 
           <Model />
           <Ground />
@@ -87,8 +68,9 @@ export default function CarSale() {
             <OrbitControls
               enableZoom={zoom}
               autoRotate={rotate}
-              autoRotateSpeed={2.5}
-              maxPolarAngle={1.45}
+              autoRotateSpeed={0.7}
+              maxPolarAngle={1.3}
+              minPolarAngle={1.3}
             />
           )}
 
@@ -98,6 +80,18 @@ export default function CarSale() {
             fov={FirstPerson ? 40 : 50}
             position={FirstPerson ? [0.4, 0.9, -0.3] : [0, 1.5, 5]}
             rotation={FirstPerson ? [0, Math.PI, 0] : [0, 0, 0]}
+          />
+
+          <Stats />
+          <Environment preset="night" background blur={1} />
+
+          <Stars
+            radius={100}
+            depth={50}
+            count={5000}
+            factor={4}
+            fade
+            speed={1.6}
           />
         </Suspense>
       </Canvas>
