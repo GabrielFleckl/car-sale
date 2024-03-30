@@ -6,7 +6,6 @@ import {
   OrbitControls,
   PerspectiveCamera,
   PointerLockControls,
-  Stats,
   Html,
 } from "@react-three/drei";
 import { Suspense, useRef } from "react";
@@ -16,7 +15,6 @@ import Ground from "../components3D/Ground";
 import { Model } from "../components3D/CarModel";
 
 import { useControls } from "leva";
-
 
 export default function CarSale() {
   const { FirstPerson } = useControls({ FirstPerson: false });
@@ -31,7 +29,6 @@ export default function CarSale() {
         <Suspense fallback={null}>
           <ambientLight intensity={1} />
 
-        
           {FirstPerson && (
             <spotLight
               color={"white"}
@@ -67,7 +64,6 @@ export default function CarSale() {
             rotation={FirstPerson ? [0, Math.PI, 0] : [0, 0, 0]}
           />
 
-          <Stats />
           <Environment preset="dawn" />
 
           <Html position={[0, 2.4, -1]} transform>
