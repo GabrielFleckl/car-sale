@@ -18,8 +18,8 @@ function Ground() {
         
         // roughnessMap={roughness}
         dithering={true}
-        resolution={1024}
-        color={"#3a332b"}
+        resolution={512}
+        color={"#323232"}
       />
       {/* <meshStandardMaterial
         color={[0, 0, 0]}

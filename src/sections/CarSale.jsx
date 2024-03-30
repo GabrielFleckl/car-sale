@@ -7,7 +7,6 @@ import {
   PerspectiveCamera,
   PointerLockControls,
   Stats,
-  Stars,
   Html,
 } from "@react-three/drei";
 import { Suspense, useRef } from "react";
@@ -18,6 +17,7 @@ import { Model } from "../components3D/CarModel";
 
 import { useControls } from "leva";
 
+
 export default function CarSale() {
   const { FirstPerson } = useControls({ FirstPerson: false });
   const { zoom } = useControls({ zoom: false });
@@ -26,37 +26,22 @@ export default function CarSale() {
   const camera = useRef();
 
   return (
-    <div className="h-[90vh] w-[95%] md:py-8 container hidden md:block cursor-pointer relative">
+    <div className="h-[90vh] w-full md:py-8 container hidden md:block cursor-pointer relative">
       <Canvas className="rounded-3xl">
         <Suspense fallback={null}>
-          <color args={["#141414"]} attach="background" />
-
           <ambientLight intensity={1} />
 
-          {FirstPerson ? (
-            ""
-          ) : (
+        
+          {FirstPerson && (
             <spotLight
               color={"white"}
-              intensity={150}
+              intensity={10}
               angle={1.5}
               penumbra={1}
               distance={1.1}
               position={[0, 1, 0.2]}
             />
           )}
-
-          {/* <fog attach="fog" color={"#323232"} near={0.1} far={15} /> */}
-
-          <spotLight color="#FFFFFF" intensity={150} position={[0, 4, 0]} />
-
-          <spotLight
-            angle={1}
-            penumbra={1}
-            color="#FFFFFF"
-            intensity={50}
-            position={[0, 3, 5.2]}
-          />
 
           <Model />
           <Ground />
@@ -83,22 +68,26 @@ export default function CarSale() {
           />
 
           <Stats />
-          <Environment preset="night" background blur={1} />
+          <Environment preset="dawn" />
 
-          <Stars
-            radius={100}
-            depth={50}
-            count={5000}
-            factor={4}
-            fade
-            speed={1.6}
-          />
+          <Html position={[0, 2.4, -1]} transform>
+            <p className="text-white font-bold text-[12px] w-26 leading-3 p-1 rounded-xl bg-red-700">
+              Summer Sale
+            </p>
+          </Html>
+          <Html position={[0, 2, -1]} transform>
+            <p className="text-white font-bold text-[12px] w-26 leading-3 p-1 rounded-xl bg-red-700">
+              Lamborghini | $ 10.000.000
+            </p>
+          </Html>
         </Suspense>
       </Canvas>
       <Loader />
-      <p className="text-white absolute top-[60px] hidden md:inline left-[20px] z-50 font-bold">
-        Press ESC to exit
-      </p>
+      {FirstPerson && (
+        <p className="text-white absolute top-[60px] hidden md:inline left-[20px] z-50 font-bold">
+          Press ESC to exit
+        </p>
+      )}
     </div>
   );
 }
