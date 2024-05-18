@@ -65,17 +65,6 @@ export default function CarSale() {
           />
 
           <Environment preset="dawn" />
-
-          <Html position={[0, 2.4, -1]} transform>
-            <p className="text-white font-bold text-[12px] w-26 leading-3 p-1 rounded-xl bg-red-700">
-              Summer Sale
-            </p>
-          </Html>
-          <Html position={[0, 2, -1]} transform>
-            <p className="text-white font-bold text-[12px] w-26 leading-3 p-1 rounded-xl bg-red-700">
-              Lamborghini | $ 10.000.000
-            </p>
-          </Html>
         </Suspense>
       </Canvas>
       <Loader />
