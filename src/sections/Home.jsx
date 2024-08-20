@@ -1,4 +1,4 @@
-// import Navbar from "../components/Navbar";
+
 import Button from "../components/Button";
 import ButtonOutlined from "../components/ButtonOutlined";
 import AccentText from "../components/AccentText";
